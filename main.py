@@ -4,6 +4,8 @@ import sys
 import random
 import sqlite3
 
+# Инициализация Pygame
+pygame.init()
 
 width, height = 800, 600
 win = pygame.display.set_mode((width, height))
