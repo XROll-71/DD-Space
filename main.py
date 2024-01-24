@@ -229,4 +229,22 @@ while True:
                       shuttle_x += shuttle_speed
                   menu_music.stop()
                   game_music.play()
-                        
+                  for enemy in enemies:
+                      enemy[1] += enemy_speed
+          
+                      # Обработка столкновения врагов с пулями
+                      for bullet in bullets:
+                          for enemy in enemies:
+                              if (
+                                  enemy[0] < bullet[0] < enemy[0] + enemy_size
+                                  and enemy[1] < bullet[1] < enemy[1] + enemy_size
+                              ):
+                                  enemies.remove(enemy)
+                                  bullets.remove(bullet)
+                                  score += 1
+                                  explosion_sound.play()
+          
+                      # Удаление врагов, вышедших за пределы экрана
+                      if enemy[1] > height:
+                          enemies.remove(enemy)
+                                  
