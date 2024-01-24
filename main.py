@@ -27,3 +27,16 @@ shoot_sound = pygame.mixer.Sound("data/shoot2.wav")
 
 explosion_sound = pygame.mixer.Sound("data/boom.wav")
 explosion_sound.set_volume(1.0)
+
+# Определение громкости музыки (от 0.0 до 1.0)
+menu_music.set_volume(0.5)
+game_music.set_volume(0)
+shoot_sound.set_volume(1.0)
+
+conn = sqlite3.connect("highscores.db")
+cursor = conn.cursor()
+# Создание таблицы для хранения рекордов, если ее еще нет
+cursor.execute('''CREATE TABLE IF NOT EXISTS highscores
+                  (player_name TEXT, score INTEGER)''')
+conn.commit()
+conn.close()
