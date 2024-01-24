@@ -107,3 +107,8 @@ def get_highest_score():
 def draw_shuttle(x, y):
     win.blit(shuttle_img, (x, y))
 
+def draw_enemy(x, y):
+    if random_point == 0:
+        win.blit(enemy_img, (x, y))
+    else:
+        win.blit(enemy2_img, (x, y))
