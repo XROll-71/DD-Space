@@ -193,3 +193,8 @@ while True:
                     game_over = False
                     shuttle_lives = 3
                     score = 0
+                if show_menu:
+                    # Если отображается меню, рисуем его
+                    win.fill((0, 0, 0))
+                    play_rect, exit_rect = draw_menu()
+                    menu_music.play()  
