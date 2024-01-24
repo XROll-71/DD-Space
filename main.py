@@ -40,3 +40,9 @@ cursor.execute('''CREATE TABLE IF NOT EXISTS highscores
                   (player_name TEXT, score INTEGER)''')
 conn.commit()
 conn.close()
+
+shuttle_x = width // 2 - shuttle_size // 2
+shuttle_y = height - 2 * shuttle_size
+shuttle_speed = 8
+shuttle_lives = 3
+random_point = random.randint(0, 1)
