@@ -128,3 +128,8 @@ def draw_game_over():
     font = pygame.font.SysFont(None, 100)
     game_over_text = font_pixel.render("Game Over", True, red)
     return game_over_text, game_over_text.get_rect(center=(width // 2, height // 2 - 50))
+
+def draw_record():
+    font2 = pygame.font.SysFont(None, 40)
+    new_record = font.render(f"Новый рекорд:{score}!", True, white)
+    return new_record, new_record.get_rect(center=(width // 2, height // 2 - 20))
