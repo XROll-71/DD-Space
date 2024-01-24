@@ -86,3 +86,12 @@ def set_new_highscore(player_name, score):
     # Проверка, есть ли уже запись для этого игрока в базе данных
     cursor.execute("SELECT * FROM highscores WHERE player_name=?", (player_name,))
     existing_record = cursor.fetchone()
+    if existing_record:
+        # Если запись существует, обновляем ее, если текущий счет больше предыдущего
+        if score > existing_record[1]:
+            cursor.execute("UPDATE highscores SET score=? WHERE player_name=?", (score, player_name))
+    else:
+        # Если записи нет, добавляем новую запись
+        cursor.execute("INSERT INTO highscores (player_name, score) VALUES (?, ?)", ("Player", score))
+    conn.commit()
+    conn.close()
