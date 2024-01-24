@@ -115,3 +115,11 @@ def draw_enemy(x, y):
 def draw_bullets(bullets):
     for bullet in bullets:
         win.blit(bullet_img, (bullet[0], bullet[1]))
+
+def draw_info(lives, score):
+    font_pixel_bt2 = pygame.font.Font("data/pixelfont_ls.ttf", 20)
+    font = pygame.font.SysFont(None, 30)
+    lives_text = font_pixel_bt2.render(f"Life: {lives}", True, white)
+    score_text = font.render(f"score: {score}", True, white)
+    win.blit(lives_text, (10, 10))
+    win.blit(score_text, (width - 150, 10))
