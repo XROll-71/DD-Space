@@ -211,4 +211,11 @@ while True:
                     font = pygame.font.SysFont(None, 30)
                     font_pixel_bt2 = pygame.font.Font("data/pixelfont.ttf", 15)
                     return_to_menu_text = font_pixel_bt2.render("Return to the main menu", True, white)
+                if score > get_highest_score():
+                    # Записываем новый рекорд в базу данных
+                    player_name = "Player"  # Можете добавить возможность ввода имени игрока
+                    set_new_highscore('Player', score)
+                    new_record_text, new_record_rect = draw_record()
+                    win.blit(new_record_text, new_record_rect)
+                win.blit(return_to_menu_text, return_to_menu_rect.move(10, 10))
               
