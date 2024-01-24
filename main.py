@@ -123,3 +123,8 @@ def draw_info(lives, score):
     score_text = font.render(f"score: {score}", True, white)
     win.blit(lives_text, (10, 10))
     win.blit(score_text, (width - 150, 10))
+
+def draw_game_over():
+    font = pygame.font.SysFont(None, 100)
+    game_over_text = font_pixel.render("Game Over", True, red)
+    return game_over_text, game_over_text.get_rect(center=(width // 2, height // 2 - 50))
