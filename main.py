@@ -112,3 +112,6 @@ def draw_enemy(x, y):
         win.blit(enemy_img, (x, y))
     else:
         win.blit(enemy2_img, (x, y))
+def draw_bullets(bullets):
+    for bullet in bullets:
+        win.blit(bullet_img, (bullet[0], bullet[1]))
