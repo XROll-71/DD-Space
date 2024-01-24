@@ -247,4 +247,12 @@ while True:
                       # Удаление врагов, вышедших за пределы экрана
                       if enemy[1] > height:
                           enemies.remove(enemy)
-                                  
+                  if random.random() < 0.05:
+                      enemy_x = random.randint(0, width - enemy_size)
+                      enemy_y = 0
+                      enemies.append([enemy_x, enemy_y])
+          
+                  # Движение пуль
+                  for bullet in bullets:
+                      bullet[1] -= bullet_speed
+                                            
