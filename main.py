@@ -255,4 +255,18 @@ while True:
                   # Движение пуль
                   for bullet in bullets:
                       bullet[1] -= bullet_speed
+                  bullets = [bullet for bullet in bullets if bullet[1] > 0]
+                  
+                  # Стрельба при нажатии пробела
+                  if keys[pygame.K_SPACE]:
+                      bullets.append([shuttle_x + shuttle_size // 2, shuttle_y])
+                      shoot_sound.play()
+                  # Обработка столкновения врагов с шатлом
+                  for enemy in enemies:
+                      if (
+                          shuttle_x < enemy[0] < shuttle_x + shuttle_size
+                          and shuttle_y < enemy[1] < shuttle_y + shuttle_size
+                      ):
+                          enemies.remove(enemy)
+                          shuttle_lives -= 1
                                             
