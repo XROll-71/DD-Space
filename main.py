@@ -78,3 +78,11 @@ menu_bg = pygame.image.load("data/bg2.jpg")
 menu_bg = pygame.transform.scale(menu_bg, (width, height))
 
 font_pixel = pygame.font.Font("data/pixelfont.ttf", 100)
+
+def set_new_highscore(player_name, score):
+    conn = sqlite3.connect("highscores.db")
+    cursor = conn.cursor()
+
+    # Проверка, есть ли уже запись для этого игрока в базе данных
+    cursor.execute("SELECT * FROM highscores WHERE player_name=?", (player_name,))
+    existing_record = cursor.fetchone()
