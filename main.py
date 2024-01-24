@@ -15,6 +15,24 @@ white = (255, 255, 255)
 red = (255, 0, 0)
 blue = (0, 0, 255)
 
+shuttle_img = pygame.image.load("data/shattle.png")
+shuttle_size = 50
+shuttle_img = pygame.transform.scale(shuttle_img, (shuttle_size, shuttle_size))
+
+
+enemy_img = pygame.image.load("data/enemy.png")
+enemy_size = 50
+enemy_img = pygame.transform.scale(enemy_img, (enemy_size, enemy_size))
+
+
+enemy2_img = pygame.image.load("data/enemy2.png")
+enemy2_size = 50
+enemy2_img = pygame.transform.scale(enemy2_img, (enemy2_size, enemy2_size))
+
+bullet_img = pygame.image.load("data/bullet.png")
+bullet_size = 30
+bullet_img = pygame.transform.scale(bullet_img, (bullet_size, bullet_size))
+
 pygame.mixer.init()
 
 # Загрузка музыки для главного экрана
