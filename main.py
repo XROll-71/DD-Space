@@ -168,3 +168,28 @@ game_over = False
 
 # Объявление Rect'ов до основного цикла
 play_rect, exit_rect, return_to_menu_rect = None, None, None
+
+while True:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            pygame.quit()
+            sys.exit()
+        elif event.type == pygame.MOUSEBUTTONDOWN:
+            mouse_x, mouse_y = pygame.mouse.get_pos()
+
+            if show_menu:
+                # Проверка клика на кнопке Play
+                if play_rect.collidepoint(mouse_x, mouse_y):
+                    show_menu = False
+                # Проверка клика на кнопке Exit
+                elif exit_rect.collidepoint(mouse_x, mouse_y):
+                    pygame.quit()
+                    sys.exit()
+
+            elif game_over:
+                # Проверка клика на кнопке "Вернуться в главное меню" при Game Over
+                if return_to_menu_rect.collidepoint(mouse_x, mouse_y):
+                    show_menu = True
+                    game_over = False
+                    shuttle_lives = 3
+                    score = 0
