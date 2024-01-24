@@ -73,3 +73,8 @@ enemy_speed = 5
 enemies = []
 
 score = 0
+
+menu_bg = pygame.image.load("data/bg2.jpg")
+menu_bg = pygame.transform.scale(menu_bg, (width, height))
+
+font_pixel = pygame.font.Font("data/pixelfont.ttf", 100)
