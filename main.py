@@ -68,3 +68,8 @@ random_point = random.randint(0, 1)
 bullet_size = 8
 bullet_speed = 15
 bullets = []
+
+enemy_speed = 5
+enemies = []
+
+score = 0
