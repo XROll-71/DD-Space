@@ -124,6 +124,30 @@ def draw_info(lives, score):
     win.blit(lives_text, (10, 10))
     win.blit(score_text, (width - 150, 10))
 
+def draw_menu():
+    win.blit(menu_bg, (0, 0))
+
+    title_text = font_pixel.render("DD!Space", True, white)
+    title_rect = title_text.get_rect(center=(width // 2, height // 4))
+    win.blit(title_text, title_rect)
+
+    font_pixel_bt = pygame.font.Font("data/pixelfont.ttf", 50)
+    font = pygame.font.SysFont(None, 50)
+    play_text = font_pixel_bt.render("Play", True, white)
+    exit_text = font_pixel_bt.render("Exit", True, white)
+    highest_score = get_highest_score()
+    score_text = font_pixel_bt.render(f"Highest Score: {highest_score}", True, white)
+
+    play_rect = play_text.get_rect(center=(width // 2, height // 2 - 50))
+    exit_rect = exit_text.get_rect(center=(width // 2, height // 2 + 50))
+    score_rect = score_text.get_rect(center=(width // 2, height // 2 + 150))
+
+    win.blit(play_text, play_rect)
+    win.blit(exit_text, exit_rect)
+    win.blit(score_text, score_rect)
+
+    return play_rect, exit_rect  # Возвращаем rect'ы кнопок
+
 def draw_game_over():
     font = pygame.font.SysFont(None, 100)
     game_over_text = font_pixel.render("Game Over", True, red)
