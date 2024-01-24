@@ -218,4 +218,15 @@ while True:
                     new_record_text, new_record_rect = draw_record()
                     win.blit(new_record_text, new_record_rect)
                 win.blit(return_to_menu_text, return_to_menu_rect.move(10, 10))
-              
+
+
+              else:
+                  # Иначе, отображаем игровой экран
+                  keys = pygame.key.get_pressed()
+                  if keys[pygame.K_LEFT] and shuttle_x - shuttle_speed > 0:
+                      shuttle_x -= shuttle_speed
+                  if keys[pygame.K_RIGHT] and shuttle_x + shuttle_size + shuttle_speed < width:
+                      shuttle_x += shuttle_speed
+                  menu_music.stop()
+                  game_music.play()
+                        
