@@ -64,3 +64,7 @@ shuttle_y = height - 2 * shuttle_size
 shuttle_speed = 8
 shuttle_lives = 3
 random_point = random.randint(0, 1)
+
+bullet_size = 8
+bullet_speed = 15
+bullets = []
