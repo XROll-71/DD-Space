@@ -95,3 +95,12 @@ def set_new_highscore(player_name, score):
         cursor.execute("INSERT INTO highscores (player_name, score) VALUES (?, ?)", ("Player", score))
     conn.commit()
     conn.close()
+
+# Функция для получения самого высокого рекорда из базы данных
+def get_highest_score():
+    conn = sqlite3.connect("highscores.db")
+    cursor = conn.cursor()
+    cursor.execute("SELECT MAX(score) FROM highscores")
+    highest_score = cursor.fetchone()[0]
+    conn.close()
+    return highest_score if highest_score is not None else 0
