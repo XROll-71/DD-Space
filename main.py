@@ -198,3 +198,17 @@ while True:
                     win.fill((0, 0, 0))
                     play_rect, exit_rect = draw_menu()
                     menu_music.play()  
+                elif game_over:
+                    # Если отображается экран Game Over, рисуем его
+                    game_music.stop()
+                    menu_music.stop()
+                    win.fill((0, 0, 0))
+                    game_over_text, game_over_rect = draw_game_over()
+                    win.blit(game_over_text, game_over_rect)
+                    # Рисуем кнопку "Вернуться в главное меню"
+                    return_to_menu_rect = pygame.Rect(width // 2 - 150, height // 2 + 50, 300, 50)
+                    pygame.draw.rect(win, (0, 0, 0, 0), return_to_menu_rect)
+                    font = pygame.font.SysFont(None, 30)
+                    font_pixel_bt2 = pygame.font.Font("data/pixelfont.ttf", 15)
+                    return_to_menu_text = font_pixel_bt2.render("Return to the main menu", True, white)
+              
