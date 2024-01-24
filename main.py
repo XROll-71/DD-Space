@@ -211,62 +211,7 @@ while True:
                     font = pygame.font.SysFont(None, 30)
                     font_pixel_bt2 = pygame.font.Font("data/pixelfont.ttf", 15)
                     return_to_menu_text = font_pixel_bt2.render("Return to the main menu", True, white)
-                if score > get_highest_score():
-                    # Записываем новый рекорд в базу данных
-                    player_name = "Player"  # Можете добавить возможность ввода имени игрока
-                    set_new_highscore('Player', score)
-                    new_record_text, new_record_rect = draw_record()
-                    win.blit(new_record_text, new_record_rect)
-                win.blit(return_to_menu_text, return_to_menu_rect.move(10, 10))
 
 
-              else:
-                  # Иначе, отображаем игровой экран
-                  keys = pygame.key.get_pressed()
-                  if keys[pygame.K_LEFT] and shuttle_x - shuttle_speed > 0:
-                      shuttle_x -= shuttle_speed
-                  if keys[pygame.K_RIGHT] and shuttle_x + shuttle_size + shuttle_speed < width:
-                      shuttle_x += shuttle_speed
-                  menu_music.stop()
-                  game_music.play()
-                  for enemy in enemies:
-                      enemy[1] += enemy_speed
-          
-                      # Обработка столкновения врагов с пулями
-                      for bullet in bullets:
-                          for enemy in enemies:
-                              if (
-                                  enemy[0] < bullet[0] < enemy[0] + enemy_size
-                                  and enemy[1] < bullet[1] < enemy[1] + enemy_size
-                              ):
-                                  enemies.remove(enemy)
-                                  bullets.remove(bullet)
-                                  score += 1
-                                  explosion_sound.play()
-          
-                      # Удаление врагов, вышедших за пределы экрана
-                      if enemy[1] > height:
-                          enemies.remove(enemy)
-                  if random.random() < 0.05:
-                      enemy_x = random.randint(0, width - enemy_size)
-                      enemy_y = 0
-                      enemies.append([enemy_x, enemy_y])
-          
-                  # Движение пуль
-                  for bullet in bullets:
-                      bullet[1] -= bullet_speed
-                  bullets = [bullet for bullet in bullets if bullet[1] > 0]
-                  
-                  # Стрельба при нажатии пробела
-                  if keys[pygame.K_SPACE]:
-                      bullets.append([shuttle_x + shuttle_size // 2, shuttle_y])
-                      shoot_sound.play()
-                  # Обработка столкновения врагов с шатлом
-                  for enemy in enemies:
-                      if (
-                          shuttle_x < enemy[0] < shuttle_x + shuttle_size
-                          and shuttle_y < enemy[1] < shuttle_y + shuttle_size
-                      ):
-                          enemies.remove(enemy)
-                          shuttle_lives -= 1
+              
                                             
