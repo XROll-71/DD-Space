@@ -104,7 +104,6 @@ def get_highest_score():
     highest_score = cursor.fetchone()[0]
     conn.close()
     return highest_score if highest_score is not None else 0
-
 def draw_shuttle(x, y):
     win.blit(shuttle_img, (x, y))
 
