@@ -133,3 +133,14 @@ def draw_record():
     font2 = pygame.font.SysFont(None, 40)
     new_record = font.render(f"Новый рекорд:{score}!", True, white)
     return new_record, new_record.get_rect(center=(width // 2, height // 2 - 20))
+
+clock = pygame.time.Clock()
+
+# Флаг для отображения главного меню
+show_menu = True
+
+# Флаг для отображения Game Over
+game_over = False
+
+# Объявление Rect'ов до основного цикла
+play_rect, exit_rect, return_to_menu_rect = None, None, None
